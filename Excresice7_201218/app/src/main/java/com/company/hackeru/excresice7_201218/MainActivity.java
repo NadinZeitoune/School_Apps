@@ -34,28 +34,34 @@ public class MainActivity extends Activity {
         star5.setOnClickListener(listener);
     }
 
+    private void cleanStars(){
+        star1.setChecked(false);
+        star2.setChecked(false);
+        star3.setChecked(false);
+        star4.setChecked(false);
+        star5.setChecked(false);
+    }
+
     private View.OnClickListener listener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            cleanStars();
+
             int tag = Integer.valueOf((String)view.getTag());
-            CheckBox checkBox;
 
             switch (tag){
-                case 2:
-                    checkBox = findViewById(R.id.star1);
-                    checkBox.setChecked(true);
-                    Toast.makeText(MainActivity.this, "2", Toast.LENGTH_SHORT).show();
-                    break;
-                case 3:
-
-                    break;
-                case 4:
-
-                    break;
                 case 5:
-
-                    break;
+                    star5.setChecked(true);
+                case 4:
+                    star4.setChecked(true);
+                case 3:
+                    star3.setChecked(true);
+                case 2:
+                    star2.setChecked(true);
+                case 1:
+                    star1.setChecked(true);
             }
         }
     };
+
 }
