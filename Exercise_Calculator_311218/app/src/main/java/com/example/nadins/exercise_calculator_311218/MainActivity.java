@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements MathematicsThread.Mathemat
 
         // Check if user type both numbers.
         if (strNum1.isEmpty() || strNum2.isEmpty()) {
-            Toast.makeText(this, "One of the numbers is missing!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "One of the operands is missing!", Toast.LENGTH_SHORT).show();
             return;
         }
         String action = "";

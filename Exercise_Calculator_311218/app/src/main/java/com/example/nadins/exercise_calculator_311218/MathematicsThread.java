@@ -8,6 +8,7 @@ import java.net.URL;
 
 public class MathematicsThread extends Thread {
 
+    public static final String BASE_URL = "http://10.0.2.2:8080/Exercise_Calculator_Server_311218_war_exploded";
     private int num1, num2;
     private String action;
     private MathematicsActionListener listener;
@@ -27,7 +28,7 @@ public class MathematicsThread extends Thread {
         HttpURLConnection connection = null;
 
         try {
-            url = new URL("need address");
+            url = new URL(BASE_URL + "/math?num1="+num1+"&num2="+num2+"&action="+action);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setUseCaches(false);
