@@ -1,0 +1,18 @@
+func que(x: Int, y: Int) -> (Int, Int){
+    var full = 0
+    var part = 0
+
+    for i in 1...x {
+        part += 1
+        
+        if part == y {
+            full += 1
+            part = 0
+        }
+    }
+
+    let tuple = (full, part)
+    return tuple
+}
+
+print(que(x: 10, y: 7))
