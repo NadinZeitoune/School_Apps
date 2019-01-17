@@ -1,0 +1,23 @@
+import Foundation 
+
+func bubbleSort(_ arr:inout [Int]) {
+    var isSorted = false
+    var upTo = arr.count - 1
+    while !isSorted {
+        isSorted = true
+        for x in 0..<upTo {
+            if arr[x] > arr[x + 1] {
+                var temp = arr[x]
+                arr[x] = arr[x + 1]
+                arr[x + 1] = temp
+                isSorted = false
+            }
+        }
+        upTo -= 1
+    }
+}
+
+var arr: [Int] = [5,5,2,8,234,34,53,4,3,4,56,4,576,2,5,5]
+
+bubbleSort(&arr)
+print(arr)
