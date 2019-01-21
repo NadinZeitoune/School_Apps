@@ -1,0 +1,62 @@
+import Foundation 
+
+let string1 = "hEllo"
+let string2 = "HelLo"
+
+func compareIgnoreCase(theString s1:String, toTheString s2:String) -> Bool {
+    var ss1  = NSString(string:s1)
+    var ss2 = NSString(string:s2)
+
+    if ss1.length != ss2.length {
+        return false
+    }else{
+        for i in 0..<ss1.length {
+            let s1c = ss1.character(at: i)
+            let s2c = ss2.character(at: i)
+            if s1c == s2c {
+                continue
+            }
+            let small = s1c < s2c ? s1c : s2c
+            let big = s1c > s2c ? s1c : s2c
+            //print(small, big)
+            if small + 32 != big {
+                return false
+            }
+        }
+        return true
+    }
+}
+
+
+print(compareIgnoreCase(theString: string1, toTheString: string2))
+
+
+// print some of the string
+let someString = "some string"
+let indexEnd = someString.index(String.Index(encodedOffset:0), offsetBy: 4)
+let threeFirstChars = someString[someString.startIndex..<indexEnd]
+print(threeFirstChars)
+
+
+// exe 1
+func take(_ arr:inout [Int], whatToDo:(Int)->Void) {
+    for i in 0..<arr.count {
+        whatToDo(arr[i])
+    }
+}
+var arr: [Int] = [0, 4, 1, 456, 4, 564, 65465, 5]
+take(&arr, whatToDo:{(_ a:Int) in print(a)})
+
+
+// exe 2 
+func aggregation(_ arr:inout [Int], whatToDo:(inout Int, Int) -> Void) -> Int{
+    var result = arr[0]
+    for i in 1..<arr.count {
+        whatToDo(&result, arr[i])
+    }
+
+    return result
+}
+
+var arr2: [Int] = [0, 4, 1, 46, 4, 64, 65, 5]
+print(aggregation(&arr2, whatToDo:{(_ result:inout Int, _ new:Int) in result += new}))
