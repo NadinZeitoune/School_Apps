@@ -36,27 +36,3 @@ let someString = "some string"
 let indexEnd = someString.index(String.Index(encodedOffset:0), offsetBy: 4)
 let threeFirstChars = someString[someString.startIndex..<indexEnd]
 print(threeFirstChars)
-
-
-// exe 1
-func take(_ arr:inout [Int], whatToDo:(Int)->Void) {
-    for i in 0..<arr.count {
-        whatToDo(arr[i])
-    }
-}
-var arr: [Int] = [0, 4, 1, 456, 4, 564, 65465, 5]
-take(&arr, whatToDo:{(_ a:Int) in print(a)})
-
-
-// exe 2 
-func aggregation(_ arr:inout [Int], whatToDo:(inout Int, Int) -> Void) -> Int{
-    var result = arr[0]
-    for i in 1..<arr.count {
-        whatToDo(&result, arr[i])
-    }
-
-    return result
-}
-
-var arr2: [Int] = [0, 4, 1, 46, 4, 64, 65, 5]
-print(aggregation(&arr2, whatToDo:{(_ result:inout Int, _ new:Int) in result += new}))
