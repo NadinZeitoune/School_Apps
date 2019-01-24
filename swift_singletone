@@ -1,0 +1,18 @@
+class Dog{
+    private static var dog:Dog!
+
+    private init() {
+        print("in init() of dog")
+    }
+    
+    class func getDog() -> Dog {
+        if dog == nil {
+            dog = Dog()
+        }
+
+        return dog
+    }
+}
+
+let d = Dog.getDog()
+let d1 = Dog.getDog()
