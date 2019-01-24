@@ -8,7 +8,7 @@ var arr: [Int] = [0, 4, 1, 456, 4, 564, 65465, 5]
 take(&arr, whatToDo:{(_ a:Int) in print(a)})
 
 
-// exe 2 
+// exe 2 - wrong
 func aggregation(_ arr:inout [Int], whatToDo:(inout Int, Int) -> Void) -> Int{
     var result = arr[0]
     for i in 1..<arr.count {
@@ -20,3 +20,38 @@ func aggregation(_ arr:inout [Int], whatToDo:(inout Int, Int) -> Void) -> Int{
 
 var arr2: [Int] = [0, 4, 1, 46, 4, 64, 65, 5]
 print(aggregation(&arr2, whatToDo:{(_ result:inout Int, _ new:Int) in result += new}))
+
+
+// exe 3
+func allNumbers(_ arr:inout [Int], criteria:(inout Bool, Int)->Void) -> Bool{
+    var isInCriteria = true
+
+    for i in 0..<arr.count {
+        whatToDo(&isInCriteria, arr[i])
+
+        if !isInCriteria {
+            break
+        }
+    }
+
+    return isInCriteria
+}
+
+var arr: [Int] = [0, 4, 1, 456, 4, 564, 65465, 5]
+isInCriteria(&arr, criteria:{(_ b:inout Bool, _ a:Int) in if !(a < 50) {b = false} {}})
+
+
+// exe 4
+func changeArray(_ arr: [Int], whatToDo:(Int) -> Int) -> [Int]{
+    var newArray : [Int] = []
+
+    for i in 0..<arr.count {
+        newArray.append(whatToDo(arr[i]))
+    }
+
+    return newArray
+}
+
+var arr: [Int] = [0, 4, 1, 456, 4, 564, 65465, 5]
+
+print(changeArray(arr, whatToDo:{(_ a:Int) in return (a * 2) }))
