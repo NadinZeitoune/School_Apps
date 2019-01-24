@@ -1,0 +1,84 @@
+//
+//  main.swift
+//  2019_01_24
+//
+//  Created by Elad Lavi on 24/01/2019.
+//  Copyright © 2019 Elad Lavi. All rights reserved.
+//
+import Foundation
+class Point{
+    var x:Int
+    var y:Int
+    init(x:Int, y:Int){
+        self.x = x
+        self.y = y
+    }
+    convenience init(data:Data) {
+        do{
+            let d = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Int]
+            self.init(keyValuePairs: d)
+        }catch let e{
+            print(e)
+            self.init(x: 0, y: 0)
+        }
+    }
+    
+    convenience init(keyValuePairs:[String:Int]){
+        self.init(x: keyValuePairs["x"]!, y: keyValuePairs["y"]!)
+    }
+    
+    func getDictionary()->[String:Int]{
+        return ["x":self.x, "y":self.y]
+    }
+    
+    func data()->Data?{
+        let d = getDictionary()
+        do{
+            let data = try JSONSerialization.data(withJSONObject: d, options: .prettyPrinted)
+            return data
+        }catch let e{
+            print(e)
+        }
+        return nil
+    }
+}
+class Circle {
+    var center: Point
+    var radius: Int
+    init(center: Point, radius: Int) {
+        self.center = center
+        self.radius = radius
+    }
+    convenience init(keyValuePairs:[String:Any]){
+        self.init(center: Point(keyValuePairs: keyValuePairs["center"] as! [String:Int]), radius: keyValuePairs["radius"] as! Int)
+    }
+    convenience init(data:Data){
+        do{
+            let d = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+            self.init(keyValuePairs: d)
+        }catch let e{
+            print(e)
+            self.init(center: Point(x: 0, y: 0), radius: 0)
+        }
+    }
+    
+    func getDictionary()->[String:Any]{
+        return ["center":center.getDictionary(), "radius":self.radius]
+    }
+    
+    func data()->Data?{
+        do{
+            let data = try JSONSerialization.data(withJSONObject: getDictionary(), options: .prettyPrinted)
+            return data
+        }catch let e{
+            print(e)
+        }
+        return nil
+    }
+}
+
+
+let cir1 = Circle(center: Point(x: 4, y: 5), radius: 6)
+let data = cir1.data()!
+let cir2 = Circle(data: data)
+print("x: \(cir2.center.x), y: \(cir2.center.y), radius:\(cir2.radius)")
