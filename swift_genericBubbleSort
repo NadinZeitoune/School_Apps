@@ -1,0 +1,24 @@
+import Foundation 
+
+func swap<T>(arr:inout[T], i:Int, j:Int) {
+    let temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+}
+
+func bubbleSort<T>(arr: inout [T], compare:(_ x:T, _ y:T) -> Bool) {
+    var isSorted = false
+    var upTo = arr.count - 1
+
+    while !isSorted {
+        isSorted = true
+
+        for i in 0..<upTo {
+            if compare(arr[i], arr[i + 1]) {
+                swap(arr: &arr, i:i, j: i + 1)
+                isSorted = false
+            }
+        }
+        upTo -= 1
+    } 
+}
