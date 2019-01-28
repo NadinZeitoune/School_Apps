@@ -202,3 +202,9 @@ func moveEvenFirst(arr:inout[Int]) {
         }
     }
 }
+
+
+/*func moveEvenFirst(arr:inout[Int]) {
+    bubbleSort(arr: &arr, compare:{(x:Int, y:Int) -> Bool in 
+    return  x % 2 != 0 && y % 2 == 0 })
+}*/
