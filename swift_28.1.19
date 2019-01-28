@@ -1,0 +1,204 @@
+import Foundation 
+
+var arr = [1,2,3,3,2]
+
+// exe 1
+func makeEvenArr(_ arr:inout[Int]) -> [Int] {
+    var newArr:[Int] = []
+
+    for i in 0..<arr.count {
+        if arr[i] % 2 == 0 {
+            newArr.append(arr[i])
+        }
+    }
+    return newArr
+}
+
+// exe 1b - Elad 
+func removeOdd(arr:inout [Int]) {
+    var i = 0
+    while i < arr.count {
+        if arr[i] % 2 != 0 {
+            arr.remove(at:i)
+        }else{
+            i += 1
+        }
+    }
+}
+
+
+// exe 2
+func removeDuplicates(_ arr:inout[Int]) {
+    print("before any loop")
+    for i in 0..<arr.count {print("loop1 \(i)")
+        if i == 0{continue}
+        
+        for j in 0..<i {print("loop2 \(i)")
+            if arr[i] == arr[j]{
+                arr.remove(at:i)
+                break
+            }
+        }
+    }
+}
+// exe 2 - Elad
+func contains( arr:inout[Int], from:Int, to:Int, element:Int) -> Bool {
+    for i in from..<to {
+        if arr[i] == element {
+            return true
+        }
+    }
+    return false
+}
+func removeDuplicate(arr:inout[Int]) {
+    var i = 0
+
+    while i < arr.count {
+        if contains(arr: &arr, from:0, to:i, element:arr[i]) {
+            arr.remove(at:i)
+        }else{
+            i += 1
+        }
+    }
+}
+// another answer
+func removeDuplicates2(arr:inout[Int]) {
+    var unique:[Int] = []
+    for i in 0..<arr.count {
+        if !unique.contains(arr[i]) {
+            unique.append(arr[i])
+        }
+    }
+    arr = unique
+}
+// another one
+func removeDuplicates3(arr:inout[Int]) {
+    var set1 = Set<Int>(arr)
+    arr = [Int](set1)
+}
+
+
+// exe 3
+func combineArrAndRemoveDuplicates(_ arr1:inout[Int], _ arr2:inout[Int]) -> [Int] {
+    var newArr:[Int] = arr1 + arr2
+    removeDuplicates(&newArr)
+    return newArr
+}
+// exe 3 Elad
+func union(arr1:inout [Int], arr2:inout[Int]) -> [Int] {
+    var newArr:[Int] = arr1 + arr2
+    removeDuplicate(arr:&newArr)
+    return newArr
+}
+
+
+// exe 4
+func removeBFromA(_ arrA:inout[Int], _ arrB:inout[Int]) {
+    for i in 0..<arrB.count {
+        for j in 0..<arrA.count {
+            if arrA[j] == arrB[i] {
+                arrA.remove(at:j)
+            }
+        } 
+    }   
+}
+// exe 4 - Elad
+func subtract(arr1:inout[Int], arr2:inout[Int]) {
+    var i = 0
+    while i<arr1.count {
+        if arr2.contains(arr1[i]) {
+            arr1.remove(at:i)
+        }else{
+            i += 1
+        }
+    }
+
+    /* Or this- less good
+    var A = Set<Int>(arr1)
+    let B = Set<Int>(arr2)
+    A.subtract(B)
+    arr1 = [Int](A)
+    */
+}
+
+
+// exe 5
+func combineArrAndLeaveOnlyDuplicates(_ arr1:inout[Int], _ arr2:inout[Int]) -> [Int] {
+    var newArr:[Int] = []
+
+    for i in 0..<arr1.count {
+        for j in 0..<arr2.count {
+            if arr1[i] == arr2[j] {
+                newArr.append(arr[i])
+            }
+        }
+    }
+    removeDuplicates(&newArr)
+    return newArr
+}
+// exe 5 - Elad
+func intersect(arr1:[Int], arr2:[Int]) -> [Int] {
+    var result:[Int] = []
+
+    for x in arr1 {
+        if arr2.contains(x) {
+            result.append(x)
+        }
+    }
+
+    removeDuplicates3(arr: &result)
+    return result
+}
+
+// exe 6
+func simetricDifference(_ arr1:inout [Int], _ arr2:inout[Int]) -> [Int] {
+    var newArr:[Int] = []
+    
+    for i in 0..<arr1.count {
+        if !arr2.contains(arr1[i]) {
+            newArr.append(arr2[i])
+        }
+    }
+
+    for i in 0..<arr2.count {
+        if !arr1.contains(arr2[i]) {
+            newArr.append(arr1[i])
+        }
+    }
+    
+    return newArr
+}
+// exe 6- Elad
+func symmetricDifference(arr1:inout[Int], arr2:inout[Int]) -> [Int] {
+    var result:[Int] = union(arr1: &arr1, arr2:&arr2)
+    var intersection = intersect(arr1:arr1, arr2:arr2)
+    subtract(arr1: &result, arr2: &intersection)
+
+    return result
+}
+
+// exe 7
+func evenBeforeOdd(_ arr:inout[Int]) {
+    for i in 0..<arr.count {
+        if arr[i] % 2 == 0 {
+            var temp = arr[i]
+            arr.remove(at:i)
+            arr.insert(temp, at:0)
+        }
+    }
+}
+// exe 7 - Elad
+func swap<T>(arr:inout[T], i:Int, j:Int) {
+    let temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
+}
+func moveEvenFirst(arr:inout[Int]) {
+    var j = -1
+    for i in 0..<arr.count {
+        if arr[i] % 2 == 0 {
+            j += 1
+            swap(arr:&arr, i: i, j: j)
+        }
+    }
+}
