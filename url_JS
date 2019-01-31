@@ -1,0 +1,12 @@
+<script>
+        function sendHttpRequest(url, onComlete) {
+            var httpRequst = new XMLHttpRequest()
+            httpRequst.onreadystatechange = function(){
+               if (this.readyState == 4){
+                    onComlete(this.statusCode == 200, this.responseText)
+               }
+            };
+            httpRequst.open("GET", url, true)
+            httpRequst.send();
+        }
+    </script>
