@@ -15,3 +15,4 @@ if error == nil {
     print("bassa: \(error!)")
 }}
 task.resume()
+sleep(?) // any number you want- to catch the connection before project closes
