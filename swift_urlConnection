@@ -16,3 +16,8 @@ if error == nil {
 }}
 task.resume()
 sleep(?) // any number you want- to catch the connection before project closes
+
+
+/*
+Info.plist ---->>>> Information property list -> + -> App Transport Security Settings -> | + -> Allow Arbitrary Loads -> value: YES
+*/
