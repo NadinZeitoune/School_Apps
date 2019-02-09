@@ -52,11 +52,46 @@ class ViewController: UIViewController {
         
     }
     
+    func getUrlConnection(action:String) -> String{
+        let url = URL(string: "http://localhost:8080/IOS_exe_alert_server_war_exploded/server?action=\(action)&username=\(userName)&password=\(password)")
+        let urlRequest = URLRequest(url:url!)
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        let task = session.dataTask(with: urlRequest){(data:Data?, urlResponse:URLResponse?, error:Error?) in 
+            if error == nil {
+                if let theData = data{
+                    if theData.count > 0{
+                        let responseFromServer = String(data: theData, encoding: String.Encoding.utf8)!
+                        
+                        if responseFromServer == "100"{
+                            // Show success message
+                            openMessageAlert("YOU'R IN!")
+                        }else{
+                            // Show message with the response from the server.
+                            openMessageAlert(responseFromServer)
+                        }
+                        
+                        // OR return 
+                    }
+                }
+            }else{
+                print("error: \(error!)")}
+        }
+        task.resume()
+        sleep(5)
+    }
+    
     func checkFields() -> Bool {
         if (userName != nil && userName!.count >= 0) && (password != nil && password!.count >= 0){
             return true
         }
         return false
+    }
+    
+    func openMessageAlert(_ message:String){
+        let messageAlert = UIAlertController(title: "Message", message : message, preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "OK", style: .default){(action:UIAlertAction) in}
+        messageAlert.addAction(actionOK)
+        present(messageAlert, animated: true, completion: nil)
     }
     
     func openEmptyAlert(_ alert : UIAlertController){
