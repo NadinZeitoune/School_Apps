@@ -134,6 +134,7 @@ class ViewController: UIViewController {
         
         passwordAlert.addTextField { (textField:UITextField) in
             textField.placeholder = "password"
+            textField.isSecureTextEntry = true // Create password style input
         }
         
         let actionNext = UIAlertAction(title: "connect", style: .default) { (action:UIAlertAction) in
