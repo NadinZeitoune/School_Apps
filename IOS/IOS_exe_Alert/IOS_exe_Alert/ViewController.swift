@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     var btnSignUp : UIButton!
     var userName : String!
     var password : String!
+    var action : String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,29 +37,20 @@ class ViewController: UIViewController {
     }
 
     @objc func btnLoginClicked(sender: UIButton){
+        action = "login"
         openUsernameAlert()
-        
-        if checkFields() {
-            print("\(userName), \(password)")
-            getUrlConnection(action: "login")
-        }
     }
     
     @objc func btnSignUpClicked(sender: UIButton){
+        action = "signUp"
         openUsernameAlert()
-        
-        if checkFields() {
-            print("\(userName), \(password)")
-            getUrlConnection(action: "signUp")
-        }
-        
     }
     
     func getUrlConnection(action:String) /*-> String*/{
-        let url = URL(string: "http://localhost:8080/IOS_exe_alert_server_war_exploded/server?action=\(action)&username=\(userName)&password=\(password)")
+        let url = URL(string: "http://localhost:8080/IOS_exe_alert_server_war_exploded/server?action=\(action)&username=\(userName!)&password=\(password!)")
         let urlRequest = URLRequest(url:url!)
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        let task = session.dataTask(with: urlRequest){(data:Data?, urlResponse:URLResponse?, error:Error?) in 
+        let task = session.dataTask(with: urlRequest){(data:Data?, urlResponse:URLResponse?, error:Error?) in
             if error == nil {
                 if let theData = data{
                     if theData.count > 0{
@@ -66,13 +58,13 @@ class ViewController: UIViewController {
                         
                         if responseFromServer == "100"{
                             // Show success message
-                            openMessageAlert("YOU'R IN!")
+                            self.openMessageAlert("YOU'R IN!")
                         }else{
                             // Show message with the response from the server.
-                            openMessageAlert(responseFromServer)
+                            self.openMessageAlert(responseFromServer)
                         }
                         
-                        // OR return 
+                        // OR return
                     }
                 }
             }else{
@@ -80,13 +72,6 @@ class ViewController: UIViewController {
         }
         task.resume()
         sleep(5)
-    }
-    
-    func checkFields() -> Bool {
-        if (userName != nil && userName!.count >= 0) && (password != nil && password!.count >= 0){
-            return true
-        }
-        return false
     }
     
     func openMessageAlert(_ message:String){
@@ -134,7 +119,7 @@ class ViewController: UIViewController {
         
         passwordAlert.addTextField { (textField:UITextField) in
             textField.placeholder = "password"
-            textField.isSecureTextEntry = true // Create password style input
+            textField.isSecureTextEntry = true
         }
         
         let actionNext = UIAlertAction(title: "connect", style: .default) { (action:UIAlertAction) in
@@ -144,8 +129,10 @@ class ViewController: UIViewController {
                 return
             }
             self.password = textField.text
+            
+            self.getUrlConnection(action: self.action!)
         }
-        let actionCancel = UIAlertAction(title: "cancel", style: .cancel) { (action:UIAlertAction) in}// OR handler: nil
+        let actionCancel = UIAlertAction(title: "cancel", style: .cancel) { (action:UIAlertAction) in}
         
         passwordAlert.addAction(actionNext)
         passwordAlert.addAction(actionCancel)
