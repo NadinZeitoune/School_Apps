@@ -122,10 +122,10 @@ class ViewController: UIViewController {
             
             self.openPasswordAlert()
         }
-        let actionCancle = UIAlertAction(title: "cancle", style: .cancel) { (action:UIAlertAction) in}
+        let actionCancel = UIAlertAction(title: "cancel", style: .cancel) { (action:UIAlertAction) in}// OR handler: nil
         
         usernameAlert.addAction(actionNext)
-        usernameAlert.addAction(actionCancle)
+        usernameAlert.addAction(actionCancel)
         present(usernameAlert, animated: true, completion: nil)
     }
     
@@ -144,10 +144,10 @@ class ViewController: UIViewController {
             }
             self.password = textField.text
         }
-        let actionCancle = UIAlertAction(title: "cancle", style: .cancel) { (action:UIAlertAction) in}
+        let actionCancel = UIAlertAction(title: "cancel", style: .cancel) { (action:UIAlertAction) in}// OR handler: nil
         
         passwordAlert.addAction(actionNext)
-        passwordAlert.addAction(actionCancle)
+        passwordAlert.addAction(actionCancel)
         present(passwordAlert, animated: true, completion: nil)
     }
 }
