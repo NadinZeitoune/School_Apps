@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         
         if checkFields() {
             print("\(userName), \(password)")
+            getUrlConnection(action: "login")
         }
     }
     
@@ -48,11 +49,12 @@ class ViewController: UIViewController {
         
         if checkFields() {
             print("\(userName), \(password)")
+            getUrlConnection(action: "signUp")
         }
         
     }
     
-    func getUrlConnection(action:String) -> String{
+    func getUrlConnection(action:String) /*-> String*/{
         let url = URL(string: "http://localhost:8080/IOS_exe_alert_server_war_exploded/server?action=\(action)&username=\(userName)&password=\(password)")
         let urlRequest = URLRequest(url:url!)
         let session = URLSession(configuration: URLSessionConfiguration.default)
