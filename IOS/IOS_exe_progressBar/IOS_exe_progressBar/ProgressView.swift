@@ -9,18 +9,19 @@
 import UIKit
 
 class ProgressView: UIView {
-    var progressBackgroundColor: UIColor! = UIColor.white
+    var progressBackgroundColor: UIColor = UIColor.white
     
     var progressBar : UIView!
-    var progressBarColor: UIColor! = UIColor.black
+    var progressBarColor: UIColor = UIColor.black
     
+    private var _progress: Float = 0
     var progress : Float{
         get{
-            return self.progress
+            return self._progress
         }
         set(newProgress){
-            if newProgress <= 1 && newProgress >= 0 { // == 0...1 {
-                self.progress = newProgress
+            if newProgress <= 1.0 && newProgress >= 0.0 {
+                self._progress = newProgress
             }
         }
     }
@@ -31,14 +32,15 @@ class ProgressView: UIView {
         self.tintColor = progressBackgroundColor
         
         var progressWidth = barSize.width - 10
-        progressWidth *= CGFloat(self.progress)
+        progressWidth *= CGFloat(self._progress)
         progressBar = UIView(frame: CGRect(x: barSize.minX + 5, y: barSize.minY + 5, width: progressWidth, height: barSize.height - 10))
         progressBar.tintColor = progressBarColor
         self.addSubview(progressBar)
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        //fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     
