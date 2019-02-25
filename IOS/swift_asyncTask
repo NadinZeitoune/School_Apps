@@ -1,0 +1,9 @@
+DispatchQueue.global().async {
+            // "do in background"
+            // do heavy stuff but DON'T touch the UI
+            
+            DispatchQueue.main.async {
+                // "on post execute"
+                // you may touch the UI
+            }
+        }
