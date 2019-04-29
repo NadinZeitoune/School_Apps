@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: silver;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        div {
+            border: 2px solid black;
+            margin-bottom: 10px;
+        }
+
+        .all_site {
+            width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .header,
+        .nav,
+        .footer {
+            height: 50px;
+            width: 100%;
+        }
+
+        .footer {
+            float: left;
+        }
+
+        .article,
+        .aside {
+            height: 200px;
+        }
+
+        .article {
+            width: 68%;
+            float: left;
+        }
+
+        .aside {
+            width: 30%;
+            float: right;
+        }
+
+        .logo {
+            position: absolute;
+            top: 96px;
+            right: 153px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all_site">
+        <div class="logo">
+            <img src="_images/logo.png" height="100">
+        </div>
+        <div class="header">header</div>
+        <div class="nav">nav</div>
+        <div class="article">article</div>
+        <div class="aside">aside</div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+
+</html>

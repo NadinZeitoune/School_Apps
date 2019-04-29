@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: silver;
+            margin: 0;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        div {
+            background-color: gray;
+            margin: 2px;
+        }
+
+        .all_site {
+            width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            overflow: hidden;
+        }
+
+        .logo {
+            height: 50px;
+            width: 20%;
+        }
+
+        .menu,
+        .footer,
+        .project {
+            width: 100%;
+        }
+
+        .menu,
+        .footer {
+            height: 25px;
+        }
+
+        .footer {
+            float: left;
+        }
+
+        .project {
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .description,
+        .featured,
+        .prevNext {
+            background-color: lightgray;
+            margin: 5px;
+        }
+
+        .description {
+            width: 32%;
+            height: 200px;
+            float: left;
+        }
+
+        .featured {
+            width: 64%;
+            height: 165px;
+            float: right;
+        }
+
+        .prevNext {
+            width: 64%;
+            height: 25px;
+            float: right;
+        }
+
+        .content {
+            width: 33%;
+            margin: 0.1%;
+            float: left;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all_site">
+        <div class="logo">logo</div>
+        <div class="menu">menu</div>
+        <div class="project">
+            <div class="description">project description</div>
+            <div class="featured">featured project</div>
+            <div class="prevNext">previos / next project</div>
+        </div>
+        <div class="content">content1</div>
+        <div class="content">content2</div>
+        <div class="content">content3</div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+
+</html>
