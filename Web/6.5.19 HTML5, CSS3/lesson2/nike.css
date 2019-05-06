@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: silver;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    direction: rtl;
+}
+
+.container-fluid {
+    width: 100%;
+}
+
+.container {
+    max-width: 1160px;
+    min-height: inherit;
+    margin: 0 auto;
+}
+
+header {
+    min-height: 48px;
+    background-image: url(_images_nike/nike_01.jpg);
+}
+
+header .logo {
+    width: 100px;
+    height: 48px;
+    float: left;
+    border-right: 1px solid silver;
+    text-align: center;
+}
+
+header nav {
+    float: right;
+}
+
+header nav a {
+    color: grey;
+    text-decoration: none;
+    padding: 0 12px;
+    line-height: 48px;
+    border-right: 1px solid silver;
+    display: inline-block;
+}
+
+header .burger {
+    display: none;
+}
+
+.slider {
+    min-height: 400px;
+    background-image: url(_images_nike/nike_02.jpg);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+}
+
+main {
+    min-height: 200px;
+    background-color: white;
+    padding: 1px;
+}
+
+main h1 {
+    text-align: center;
+}
+
+main .row {
+    width: 100%;
+    overflow: hidden;
+}
+
+main .box img {
+    width: 100%;
+}
+
+main .box {
+    width: 24%;
+    text-align: center;
+    padding: 8px;
+    margin-bottom: 20px;
+    float: left;
+    margin-right: 1.33%;
+}
+
+main .last_box {
+    margin-right: 0;
+}
+
+footer {
+    min-height: 80px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+@media screen and (max-width:728px) {
+    /* main {
+        background-color: blue;
+    } */
+
+    header nav {
+        display: none;
+    }
+
+    header .burger {
+        display: block;
+    }
+
+    main .box {
+        width: 49%;
+        margin: 0 0.5%;
+    }
+}
