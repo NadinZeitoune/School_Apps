@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: silver;
+    margin:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container-fluid{
+    width:100%;
+}
+
+.container{
+    max-width:1160px;
+    margin:0 auto;
+    min-height: inherit;
+}
+
+header{
+    background-color: white;
+    min-height: 48px;
+}
+
+header .logo{
+    width:100px;
+    float:left;
+    height: 48px;
+    text-align: center;
+}
+
+header nav{
+    float: right;
+}
+
+header nav label{
+    color:grey;
+    text-decoration: none;
+    padding:0 12px;
+    line-height: 48px;
+    display: inline-block;
+}
+
+main{
+    background-color: grey;
+    min-height: 500px;
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    color: white;
+}

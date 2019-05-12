@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: silver;
+    margin:0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container-fluid{
+    width:100%;
+}
+
+.container{
+    max-width:1160px;
+    min-height: inherit;
+    margin:0 auto;
+}
+
+header{
+    background-color: white;
+    min-height: 48px;
+}
+
+header .logo{
+    width:100px;
+    float:left;
+    height: 48px;
+    text-align: center;
+    margin-right: 25px;
+}
+
+header nav{
+    float:left;
+}
+
+header nav a{
+    color:grey;
+    text-decoration: none;
+    padding:0 12px;
+    line-height: 48px;
+    display: inline-block;
+}
+
+input{
+    float: right;
+    width: 20%;
+    height: 48px;
+
+    background-image:url('_exe1_images/glass.png');
+    background-repeat:no-repeat;
+    background-position:right center;
+}
+
+.slider{
+    min-height: 250px;
+    background-image: url(_exe1_images/strip.png);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.slider h1{
+    color: white;
+    margin-bottom: 8px;
+}
+
+main{
+    background-color: rgb(252, 216, 252);
+    padding: 15px;
+}
+
+main .row{
+    width:100%;
+    overflow: hidden;
+}
+
+main .box{
+    width:24%;
+    text-align: center;
+    padding:8px;
+    margin-bottom: 20px;
+    float:left;
+    margin-right:1.33%;
+    background-color: white;
+}
+
+main .box h2{
+    background-color: turquoise;
+    color: white;
+    text-align: center;
+}
+
+main .box_end{
+    margin-right: 0;
+}
+
+footer{
+    background-color: midnightblue;
+    min-height: 48px;
+    padding: 15px;
+    overflow: hidden;
+}
+
+footer img{
+    float: right;
+}
