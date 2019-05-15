@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <title>Document</title>
+    <script>
+        function init() {
+            // document.getElementById("id_h2").innerHTML = "JS work OLD";
+            id_h2.innerHTML = "JS Work!";
+            id_h2.style.color = "blue";
+            id_h2.style.backgroundColor = "red";
+
+
+            changeImg();
+        }
+
+        function changeImg() {
+            id_img.src = "_images/icon1.png";
+            //id_img.width = 100;
+        }
+
+        function changeImg2() {
+            id_img.src = "_images/icon2.png";
+        }
+
+        function changeImg3() {
+            id_img.src = "_images/icon3.png";
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <h1>Welcome to JS!</h1>
+    <h2 id="id_h2">html</h2>
+    <img id="id_img" src="_images/icon1.png" width="300">
+    <button onclick="changeImg2()">change to pic2</button>
+    <button onclick="changeImg3()">change to pic3</button>
+</body>
+
+</html>

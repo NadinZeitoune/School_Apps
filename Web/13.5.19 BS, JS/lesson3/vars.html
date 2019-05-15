@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        var lives;
+        var score;
+        var user;
+
+        function init() {
+            lives = 5;
+            score = 100;
+            user = "Mario";
+
+            id_lives.innerHTML = lives;
+            id_score.innerHTML = score;
+            id_user.innerHTML = user;
+        }
+
+        function reduceScore() {
+            score -= 10;
+
+            if (score < 0) {
+                score = 100;
+                lives--;
+                id_lives.innerHTML = lives;
+            }
+
+            id_score.innerHTML = score;
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <h2>Lives: <span id="id_lives"></span></h2>
+    <h2>Score: <span id="id_score"></span></h2>
+    <h2>User: <span id="id_user"></span></h2>
+
+    <button onclick="reduceScore()">Reduce score</button>
+</body>
+
+</html>

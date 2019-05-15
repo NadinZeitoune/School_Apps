@@ -1,0 +1,17 @@
+body{
+    background-color: black;
+}
+
+.strip{
+    height: 300px;
+    background-image: url(_exe1_images/strip.png);
+    background-position: center;
+}
+
+footer{
+    background-color: rgb(44, 37, 87);
+}
+
+.website{
+    text-decoration: underline;
+}
