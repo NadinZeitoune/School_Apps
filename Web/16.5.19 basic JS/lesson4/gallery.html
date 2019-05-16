@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script>
+        var workers_ar = ["pic1.jpg", "pic2.jpg", "pic3.jpg", "pic4.jpg"];
+        var names_ar = ["Jojo", "Moshe", "Trump", "Avi"];
+        var position = 0;
+
+        window.onload = function () {
+            updateWorker();
+        }
+
+        function updateWorker() {
+            id_name.innerHTML = names_ar[position];
+            id_img.src = `images/${workers_ar[position]}`;
+        }
+
+        function clickBack() {
+            if (position == 0) {
+                return;
+            }
+
+            position--;
+            updateWorker();
+        }
+
+        function clickNext() {
+            if (position == names_ar.length - 1) {
+                return;
+            }
+
+            position++;
+            updateWorker();
+        }
+    </script>
+</head>
+
+<body style="padding: 5px;">
+    <h1>Gallery of workers</h1>
+    <img id="id_img">
+    <h3 id="id_name"></h3>
+    <button onclick="clickBack()">Back</button>
+    <button onclick="clickNext()">Next</button>
+</body>
+
+</html>

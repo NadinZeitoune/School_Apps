@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script>
+        window.onload = function () {
+
+        }
+
+        function changeWorker1() {
+            changeWorkerInfo("pic1.jpg", "Koko", 40, "Janitor");
+        }
+
+        function changeWorker2() {
+            changeWorkerInfo("pic2.jpg", "Moshe", 56, "Presidant");
+        }
+
+        function changeWorker3() {
+            changeWorkerInfo("pic3.jpg", "Joe", 50, "CEO");
+        }
+
+        function changeWorker4() {
+            changeWorkerInfo("pic4.jpg", "Jack", 30, "Newby");
+        }
+
+        function changeWorkerInfo(_img, _name, _age, _job) {
+            id_img.src = "images/" + _img;
+            id_name.innerHTML = _name;
+            id_age.innerHTML = colorRed(_age);
+            id_job.innerHTML = _job;
+        }
+
+        function colorRed(_value) {
+            if (_value >= 50) {
+                return `<span style="color:red">${_value}</span>`;
+            } else {
+                return `<span style="color:green">${_value}</span>`;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Workers info:</h1>
+        <button class="btn btn-info" onclick="changeWorker1()">Koko</button>
+        <button class="btn btn-info" onclick="changeWorker2()">Moshe</button>
+        <button class="btn btn-info" onclick="changeWorker3()">Joe</button>
+        <button class="btn btn-info" onclick="changeWorker4()">Jack</button>
+        <br>
+        <br>
+        <img src="" id="id_img">
+        <h2 id="id_name">worker name: </h2>
+        <p>Age: <span id="id_age"></span></p>
+        <p>Job: <span id="id_job"></span></p>
+    </div>
+</body>
+
+</html>

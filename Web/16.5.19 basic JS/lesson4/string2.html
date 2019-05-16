@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            let str = "The stupid fox jump over the sheep";
+            id_h2.innerHTML = str + "<br><br>";
+
+            let strUpper = str.toUpperCase();
+            id_h2.innerHTML += strUpper + "<br><br>";
+
+            let strLength = str.length;
+            id_h2.innerHTML += "length: " + strLength + "<br><br>";
+
+            let searchFox = str.indexOf("fox");
+            id_h2.innerHTML += "fox's start index: " + searchFox + "<br><br>";
+
+            let replaceSheep = str.replace("sheep", "cow");
+            id_h2.innerHTML += "replace: " + replaceSheep + "<br><br>";
+
+            let substr = str.substr(4, 6); // from index get number of chars
+            id_h2.innerHTML += "substr: " + substr + "<br><br>";
+
+            let substring = str.substring(4, 6); // from index to index
+            id_h2.innerHTML += "substring: " + substring + "<br><br>";
+
+            let word_ar = str.split(" ");
+            console.log(word_ar);
+
+            let str_ar = ["the", "best", "program", "ever"];
+            id_h2.innerHTML += "arr to String: " + str_ar.join(" ") + "<br><br>";
+
+        }
+    </script>
+</head>
+
+<body>
+    <h2 id="id_h2"></h2>
+</body>
+
+</html>
