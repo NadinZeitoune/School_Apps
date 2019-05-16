@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var counter = 0;
+        var timer;
+        window.onload = function () {
+            // setTimeout(justOnce, 2000);// after 2 sec
+            timer = setInterval(update, 1000);
+        }
+
+        function update() {
+            counter++;
+            id_h2.innerHTML = counter;
+
+            if (counter > 10) {
+                clearInterval(timer); // stop the interval
+            }
+        }
+
+        function justOnce() {
+            id_h2.innerHTML = "HELLO!";
+        }
+    </script>
+</head>
+
+<body>
+    <h2 id="id_h2"></h2>
+</body>
+
+</html>

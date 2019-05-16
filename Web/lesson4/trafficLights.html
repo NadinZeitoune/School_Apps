@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Traffic lights</title>
+    <script>
+        var interval;
+        var colors = ["red", "yellow", "green"];
+        var counter = -1;
+        var toGreen = true;
+
+        window.onload = function () {
+            clearInterval(interval);
+            interval = setInterval(update, 1000);
+        }
+
+        function update() {
+            if (counter == colors.length - 1) {
+                toGreen = false;
+                counter--;
+            } else if (counter == 0) {
+                counter++;
+                toGreen = true;
+            } else {
+                if (toGreen) {
+                    counter++;
+                } else {
+                    counter--;
+                }
+            }
+
+            updateColor();
+        }
+
+        function updateColor() {
+            id_h2.style.color = colors[counter];
+        }
+
+        function stopLights() {
+            clearInterval(interval);
+        }
+    </script>
+</head>
+
+<body>
+    <h2 id="id_h2">TRAFFIC LIGHTS</h2>
+    <button onclick="stopLights()">Stop</button>
+</body>
+
+</html>
