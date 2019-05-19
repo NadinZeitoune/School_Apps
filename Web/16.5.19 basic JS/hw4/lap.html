@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var timer;
+        var sCount;
+        var mCount;
+
+        window.onload = function(){
+            sCount = -1;
+            mCount = 0;
+            update();
+            timer = setInterval(update, 1000);
+        }
+
+        function update(){
+            sCount++;
+            if(sCount == 60){
+                mCount++;
+                sCount = 0;
+            }
+
+            id_h2.innerHTML = `${mCount}:${sCount}:00`;
+        }
+
+        function onLapClick(){
+            id_h3.innerHTML += `${mCount}:${sCount}:00 <br>`;
+        }
+    </script>
+</head>
+<body>
+    <h2 id="id_h2"></h2>
+    <button onclick="onLapClick()">LAP</button>
+    <h3 id="id_h3"></h3>
+</body>
+</html>
