@@ -1,0 +1,31 @@
+[
+        {
+            "name":"The Simpsons",
+            "seasons":"25",
+            "views":"10000",
+            "image":"simpsons.jpg",
+            "descrption":"descrption bla bla"
+            
+        },
+        {
+            "name":"Breaking bad",
+            "seasons":"6",
+            "views":"20000",
+            "image":"breakingbad.jpg"
+            
+        },
+        {
+            "name":"Dexter",
+            "seasons":"8",
+            "views":"10000",
+            "image":"dexter.jpg"
+            
+        },
+		{
+			"name":"Seinfeld",
+            "seasons":"9",
+            "views":"50000",
+            "image":"seinfeld.jpg"
+            
+		}
+    ]
