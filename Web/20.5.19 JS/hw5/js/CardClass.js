@@ -23,10 +23,13 @@ CardClass.prototype.addToHtml = function(){
     newName.innerHTML = "????????";
     newCard.appendChild(newName);
 
-    newCard.innerHTML += `<p class="card-text">Age: ${this.age}</p>`;
-    newCard.innerHTML += `<p class="card-text">State: ${this.state}</p>`;
-    newCard.innerHTML += `<p class="card-text">Company: ${this.company}</p>`;
-    newCard.innerHTML += `<p class="card-text">Money: ${this.money}</p>`;
+    // solution: instead of newCard - newSpan.
+    var newSpan = document.createElement("span");
+    newCard.appendChild(newSpan);
+    newSpan.innerHTML += `<p class="card-text">Age: ${this.age}</p>`;
+    newSpan.innerHTML += `<p class="card-text">State: ${this.state}</p>`;
+    newSpan.innerHTML += `<p class="card-text">Company: ${this.company}</p>`;
+    newSpan.innerHTML += `<p class="card-text">Money: ${this.money}</p>`;
 
     var cardBtn = document.createElement("button");
     cardBtn.className = "btn btn-success";
