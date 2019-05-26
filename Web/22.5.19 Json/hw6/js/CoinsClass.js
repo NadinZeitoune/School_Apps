@@ -18,7 +18,7 @@ CoinsClass.prototype.addToHTML = function () {
     newCoin.innerHTML += `<img src="${this.img}">`;
     newCoin.innerHTML += `<h2>${this.name}</h2>`;
     newCoin.innerHTML += `<div>Symbol: ${this.symbol}</div>`;
-    newCoin.innerHTML += `<div>Price of ${this.symbol} in $: ${this.price_usd}$</div>`;
+    newCoin.innerHTML += `<div>Value of ${this.symbol} in $: ${this.price_usd}$</div>`;
 
     newCoin.onclick = function () {
         var url = "https://coinmarketcap.com/currencies/" + this.id + "/#charts";
