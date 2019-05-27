@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/anim.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(hide_btn).click(function () {
+                $(".box").hide(800);
+            });
+            $(show_btn).click(function () {
+                $(".box").show(800);
+            });
+            $(toggle_btn).click(function () {
+                // $(".box").toggle(800);
+                // $(".box").fadeToggle(800);
+                // $(".box").slideToggle(800);
+                $(".box").toggleClass("box2");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <button id="hide_btn">hide</button>
+        <button id="show_btn">show</button>
+        <button id="toggle_btn">toggle</button>
+        <div class="box">
+            this is box
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("ol").append("<li>Iraq</li>");
+            $("ol").prepend("<li>Israel</li>");
+
+            $(".germany").after("<li>France</li>");
+            $(".germany").before("<li>Thiland</li>");
+        });
+    </script>
+</head>
+
+<body>
+    <ol>
+        <li>USA</li>
+        <li class="germany">Germany</li>
+        <li>Brazil</li>
+        <li>Jordan</li>
+    </ol>
+</body>
+
+</html>

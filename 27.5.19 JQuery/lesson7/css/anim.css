@@ -1,0 +1,11 @@
+.box {
+    width: 200px;
+    height: 150px;
+    background-color: orange;
+    transition: 1s;
+}
+
+.box2 {
+    background-color: skyblue;
+    transform: translate(-100%, 0) rotate(360deg);
+}

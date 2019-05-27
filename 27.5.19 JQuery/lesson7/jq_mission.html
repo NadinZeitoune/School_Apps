@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        var lang = "heb";
+
+        $(function () {
+            $(".lang").on("click", function () {
+                lang = $(this).html();
+            });
+
+            $(".animal").on("click", function () {
+                let meaning = $(this).data(lang);
+                $(id_meaning).html(meaning);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <button class="lang">heb</button>
+        <button class="lang">en</button>
+        <br>
+        <button class="animal" data-heb="כלב" data-en="Dog">Dog</button>
+        <button class="animal" data-heb="חתול" data-en="Cat">Cat</button>
+        <button class="animal" data-heb="קוף" data-en="Monkey">Monkey</button>
+        <button class="animal" data-heb="דינוזאור" data-en="Dino">Dino</button>
+        <div>The meaning: <span id="id_meaning"></span></div>
+    </div>
+</body>
+
+</html>

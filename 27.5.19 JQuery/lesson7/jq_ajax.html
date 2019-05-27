@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function () {
+            doGetAjax();
+        });
+
+        function doGetAjax() {
+            $.get("https://api.coinmarketcap.com/v1/ticker/?limit=10", function (data) {
+                console.table(data);
+            });
+        }
+
+        function doAjax() {
+            $.ajax({
+                /* method = "POST",
+                data: {key: "Value", key2: "Value2"},*/
+                url: "https://api.coinmarketcap.com/v1/ticker/?limit=10",
+                crossDomain: true,
+                dataType: "JSON",
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
