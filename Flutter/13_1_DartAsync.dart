@@ -4,7 +4,8 @@ import 'dart:math';
 Future<void> main() async {
   print("Loading items....");
   
-  for(int i = 0; i < 10; i++){
+  /// Future
+  /*for(int i = 0; i < 10; i++){
     //print(Repository.returnMyItem());
     /*asyncrounusly
      * Repository.returnMyItemFuture().then(
@@ -21,7 +22,21 @@ Future<void> main() async {
         print(item);
       });
     
-  }
+  }*/
+  
+  ///Stream
+  /*Repository.returnMyItemStream().listen((item){
+    print(item);
+  });*/
+  
+  // Sync
+  /*Iterable<Item> list = Repository.returnMyItemStreamSync();
+  print(list);*/
+  
+  
+  // Call to stream from inside stream
+  Repository.returnMyItemStreams().listen((item){print(item);});
+  
 
   print("done");
 }
@@ -32,6 +47,49 @@ class Repository{
   
   ///
   /// Asyncrounusly
+  ///
+  ///
+  /// List<Item> -> Stream<Item> (List<Future<Item>>)
+  
+  static Stream<Item> returnMyItemStreams() async* {
+    for(int i = 0; i < 10; i++){
+      var rnd = new Random(); 
+      int random = rnd.nextInt(3);
+    
+      Item myItem = Item();
+    
+      await Future.delayed(Duration(seconds: random));
+      yield* returnMyItemStream();
+    
+    }
+  }
+  
+  static Iterable<Item> returnMyItemStreamSync() sync* {
+    for(int i = 0; i < 10; i++){
+      var rnd = new Random(); 
+      int random = rnd.nextInt(3);
+    
+      Item myItem = Item();
+    
+      Future.delayed(Duration(seconds: random));
+      yield myItem;
+    
+    }
+  }
+  
+  static Stream<Item> returnMyItemStream() async* {
+    for(int i = 0; i < 10; i++){
+      var rnd = new Random(); 
+      int random = rnd.nextInt(3);
+    
+      Item myItem = Item();
+    
+      await Future.delayed(Duration(seconds: random));
+      yield myItem;
+    
+    }
+  }
+  
   /// Item -> Future<Item>
   static Future<Item> returnMyItemFuture() async{
     var rnd = new Random();
